@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  mail:
+    build: ./mail
+    command: gunicorn simit_services.wsgi:application --bind 0.0.0.0:8085
+    volumes:
+      - ./mail/:/usr/src/app/
+      - static_volume:/usr/src/app/staticfiles
+    ports:
+      - 8085:8085
+    expose:
+      - 8085
+
+volumes:
+  static_volume:
