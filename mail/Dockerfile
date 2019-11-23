@@ -19,7 +19,7 @@ RUN apk update \
 RUN pip install --upgrade pip
 RUN pip install celery
 RUN pip install redis
-pip install mailjet_rest
+RUN pip install mailjet_rest
 RUN pip install pipenv
 COPY ./Pipfile /usr/src/app/Pipfile
 RUN pipenv install --skip-lock --system --dev
